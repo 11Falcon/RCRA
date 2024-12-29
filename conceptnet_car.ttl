@@ -1,0 +1,50 @@
+@prefix cn: <http://api.conceptnet.io/> .
+@prefix ns1: </r/> .
+
+</c/en/drive> ns1:RelatedTo </c/en/car> ;
+    cn:surfaceText "[[drive]] is related to [[car]]" .
+
+</c/en/engine> ns1:PartOf </c/en/car> ;
+    cn:surfaceText "[[An engine ]] is part of [[a car ]]" .
+
+</c/en/motor> ns1:RelatedTo </c/en/car> ;
+    cn:surfaceText "[[motor]] is related to [[car]]" .
+
+</c/en/stereo> ns1:AtLocation </c/en/car> ;
+    cn:surfaceText "*Something you find in [[a car]] is [[stereo]]" .
+
+</c/en/tire> ns1:PartOf </c/en/car> ;
+    cn:surfaceText "[[A tire]] is part of [[a car]]" .
+
+</c/en/volvo> ns1:IsA </c/en/car> ;
+    cn:surfaceText "[[A volvo]] is a type of [[car]]" .
+
+</c/en/car> ns1:AtLocation </c/en/car_show>,
+        </c/en/city>,
+        </c/en/freeway>,
+        </c/en/parking_lot>,
+        </c/en/repair_shop>,
+        </c/en/road> ;
+    ns1:CapableOf </c/en/crash>,
+        </c/en/go_fast>,
+        </c/en/roll_over>,
+        </c/en/slow_down> ;
+    ns1:HasA </c/en/seats> ;
+    ns1:HasProperty </c/en/red> ;
+    ns1:RelatedTo </c/en/automobile>,
+        </c/en/vehicle> ;
+    cn:surfaceText "*Something you find at [[a car show]] is [[car]]",
+        "*Something you find at [[the repair shop]] is [[a car]]",
+        "*Something you find on [[a freeway]] is [[car]]",
+        "You are likely to find [[a car]] in [[a parking lot]]",
+        "You are likely to find [[a car]] in [[the city]]",
+        "You are likely to find [[a car]] in [[the road]].",
+        "[[A car]] can [[go fast]]",
+        "[[A car]] can [[roll over]]",
+        "[[a car]] can [[crash]]",
+        "[[a car]] can [[slow down]]",
+        "[[a car]] has [[seats]]",
+        "[[car]] is related to [[automobile]]",
+        "[[car]] is related to [[vehicle]]",
+        "[[my car]] is [[red]]" .
+
