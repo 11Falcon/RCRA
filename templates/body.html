@@ -1,0 +1,41 @@
+<div class="container">
+    <section class="main-box">
+        <!-- <div>
+            <button>Upload</button>
+        </div> -->
+        
+        <div class="filter_amenities">
+            <form action="/upload" method="post" class="upload_image" enctype="multipart/form-data">
+                <input type="file" id="imageUpload" name="image" accept="image/*" onchange="this.form.submit()">
+            </form>
+        </div>
+
+
+    </section>
+    
+</div>
+
+<div class="box-container">
+    <div class="container">
+        <section class="boxes_item">
+            {% if image_url %}
+            <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>No image uploaded yet</p>
+        {% endif %}
+            
+
+
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="boxes_item">
+
+
+
+
+        </section>
+    </div>
+</div>
+
