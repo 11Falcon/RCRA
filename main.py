@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, sen
 import os
 import urllib.request
 from werkzeug.utils import secure_filename
+from conceptNet import model, conceptNet
 
 # Define upload folder and allowed extensions
 UPLOAD_FOLDER = './uploads/images/'  # Ensure consistent path
@@ -41,7 +42,20 @@ def upload_image():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         flash('Image successfully uploaded and displayed below')
         image_url = url_for('uploaded_image', filename = filename)
-        return render_template('main.html', image_url=image_url)
+        objects = model.detect_objects(image_url)
+
+        raw_data = conceptNet.fetch_raw_conceptnet_data(objects[0])
+        
+        # Extract and print relationships
+        relationships = conceptNet.extract_relationships(raw_data)
+        output = []
+        if relationships:
+            print(f"Relationships for '{objects[0]}':")
+            for rel in relationships:
+                output.append(rel)
+        else:
+            output.append(f"No relationships found for '{objects[0]}'.")
+        return render_template('main.html', image_url=image_url, objects=objects, output=output)
     else:
         flash("Allowed image types are - png, jpg, jpeg, gif")
         return redirect(request.url)
