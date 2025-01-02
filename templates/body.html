@@ -1,0 +1,58 @@
+<div class="container">
+    <section class="main-box">
+        <!-- Upload button -->
+        <div class="boxes_item">
+            <div class="filter_amenities">
+                <form action="/upload" method="post" class="upload_image" enctype="multipart/form-data">
+                    <input type="file" id="imageUpload" name="image" accept="image/*" onchange="this.form.submit()">
+                </form>
+            </div>
+        </div>
+
+        <!-- Navigation menu -->
+        <div class="boxes_item">
+            <ul>
+                <li>
+                    <a href="#">Les Objets Detectés</a>
+                    <ul class="dropdown">
+                        {% for i in objects %}
+                        <li><a href="#">{{i}}</a></li>
+                        {%  endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+<div class="box-container">
+    <div class="container">
+        <section class="boxes_item">
+            {% if image_url %}
+            <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>No image uploaded yet</p>
+        {% endif %}
+            
+
+
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="boxes_item">
+            <ul>
+                {% for i in output %}
+                <li>{{i}}</li>
+                
+            {%endfor%}
+
+            </ul>
+
+
+
+        </section>
+    </div>
+</div>
+
