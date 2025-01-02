@@ -8,6 +8,10 @@ body {
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.filter_amenities{
+	padding-right: 60%;
+	
+}
 .container {
     flex: 1; /* Ensure each container takes available space equally */
     max-width: 100%; /* Prevent size constraints */

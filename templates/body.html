@@ -7,9 +7,8 @@
                     <input type="file" id="imageUpload" name="image" accept="image/*" onchange="this.form.submit()">
                 </form>
             </div>
-        </div>
 
-        <!-- Navigation menu -->
+            <!-- Navigation menu -->
         <div class="boxes_item">
             <ul>
                 <li>
@@ -22,6 +21,9 @@
                 </li>
             </ul>
         </div>
+        </div>
+
+        
     </section>
 </div>
 
@@ -50,6 +52,35 @@
 
             </ul>
 
+
+
+        </section>
+    </div>
+</div>
+
+
+
+<div class="box-container">
+    <div class="container">
+        <section class="boxes_item">
+            {% if img %}
+            <img src="{{ img }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>No image uploaded yet</p>
+        {% endif %}
+            
+
+
+        </section>
+    </div>
+    <div class="container">
+        <section class="boxes_item">
+            {% if paragraph %}
+                <p> {{paragraph}}</p>
+            {% else %}
+                <p>No relation detected yet</p>
+            {% endif %}
+            
 
 
         </section>

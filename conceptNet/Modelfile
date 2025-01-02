@@ -1,0 +1,21 @@
+from mistral
+
+# set the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 0
+
+# Template to structure input/output interactions
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ .Response }}<|im_end|>
+"""
+
+# Custom system prompt for the assistant
+SYSTEM """You are an expert on ConceptNet. Your task is to return the single most accurate word that exists in ConceptNet for the given input. If the input word itself is the most accurate, return it as is. The most important requirement is to return only one word without any additional text or explanation and no need to say : The most accurate word for ....
+"""
+
+# Parameters defining special tokens
+PARAMETER stop <|im_start|>
+PARAMETER stop <|im_end|>
