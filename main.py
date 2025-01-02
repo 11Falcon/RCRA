@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, sen
 import os
 import urllib.request
 from werkzeug.utils import secure_filename
-from conceptNet import model, conceptNet
+from ConceptNet import model, conceptNet
 
 # Define upload folder and allowed extensions
 UPLOAD_FOLDER = './uploads/images/'  # Ensure consistent path
@@ -66,4 +66,5 @@ def uploaded_image(filename):
 
 # Run the app
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
